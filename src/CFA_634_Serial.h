@@ -15,6 +15,13 @@ public:
 		ARROW_RIGHT = 0x44
 	};
 
+	enum BargraphIndex {
+		CHAR_01 = 0x00,
+		CHAR_23 = 0x01,
+		CHAR_45 = 0x02,
+		CHAR_67 = 0x03
+	}
+
 	enum BlockNumStyle {
 		BLOCK_3X4 = 0x00,
 		BLOCK_4X4 = 0x01
@@ -58,10 +65,10 @@ public:
 	//####################################################################################################
 	//####################################################################################################
     void begin();
-    void print( const String &message );
-    void print( byte row, const String &message );
-    void print( byte row, byte col, const String &message );
     void center( byte row, const String &message );
+    void print( byte row, byte col, const String &message );
+    void print( byte row, const String &message );
+    void print( const String &message );
     void rprint( byte row, const String &message );
     void write( byte message );
     void clear(); // 0x0c
@@ -84,6 +91,7 @@ public:
     void backspace(); // 0x08
     void arrow( Arrows dir );
     void formFeed(); // 0x0c
+    void lineFeed(); // 0x0a
     void carriageReturn(); // 0x0d
 
 
@@ -116,7 +124,8 @@ public:
 	//#                                         SPECIAL FUNCTIONS                                         
 	//####################################################################################################
 	//####################################################################################################
-    void bargraph(); // 0x12
+    void bargraph( BargraphIndex charindex, byte bitpattern, byte startcol, byte endcol, 
+    	int length, byte row ); // 0x12
     void setCustomBmp( CustomChar charnum, byte data0, byte data1, byte data2, byte data3, 
     	byte data4, byte data5, byte data6, byte data7); // 0x19
     void blockNumber( BlockNumStyle style, byte col, int number); // 0x1c
@@ -132,3 +141,4 @@ private:
 };
 
 #endif // CFA_634_Serial_H
+
