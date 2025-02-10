@@ -20,7 +20,7 @@ public:
 		CHAR_23 = 0x01,
 		CHAR_45 = 0x02,
 		CHAR_67 = 0x03
-	}
+	};
 
 	enum BlockNumStyle {
 		BLOCK_3X4 = 0x00,
