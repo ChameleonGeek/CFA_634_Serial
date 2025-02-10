@@ -259,7 +259,8 @@ void CFA_634_Serial::bargraph( BargraphIndex charindex, byte bitpattern, byte st
     _lcdSerial->write( charindex );
     _lcdSerial->write( bitpattern );
     _lcdSerial->write( startcol );
-    _lcdSerial->write( endcollength );
+    _lcdSerial->write( endcol );
+    _lcdSerial->write( length );
     _lcdSerial->write( row  );
 }
 
