@@ -1,4 +1,7 @@
 # CFA_634_Serial
+
+## The bargraph and blockNumber functions don't currently work.  I haven't been able to diagnose why as of yet.
+
 This library creates an interface for CrystalFontz 634 Serial LCDs.  These LCDs ar 4 row x 20 column character (not graphical) displays.  They operate in inverted "basic UART" serial mode or in SPI mode.  SPI mode can be selected by bridging the JPA pads on the back of the LCD.
 
 I have a handful of these LCDs, which I purchased as salvage for several projects I've wanted to create.  I will be updating this library as I am ready to implement other communications modes.  This version uses SoftwareSerial, as that was the best approach for my first project.  I will be updating the code so the user can select whether it should use Software or Hardware serial, or SPI.  Since these LCDs don't "talk back" to the host device, only the microcontroller Tx pin is specified in serial mode.
